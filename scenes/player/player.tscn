@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuc1o3jo7nxeg"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_7lybh"]
+[ext_resource type="Texture2D" uid="uid://cmoej1ikph0b3" path="res://graphics/player/player.png" id="1_46fyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klq2c"]
+radius = 60.0333
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m61eq"]
+particle_flag_disable_z = true
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 20.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 800.0
+initial_velocity_max = 1200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 5.0
+color = Color(0.270588, 1, 1, 1)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(275, 254)
+collision_mask = 31
+script = ExtResource("1_7lybh")
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(36, 6)
+rotation = 1.5708
+texture = ExtResource("1_46fyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_klq2c")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="GrenadeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LaserStartPositions" type="Node2D" parent="."]
+position = Vector2(138, 25)
+rotation = 1.5708
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(6.10352e-05, -4.99994)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(-6.99994, -3.99994)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(7.00006, -2.99994)
+
+[node name="GrenadeStartPositions" type="Node2D" parent="."]
+position = Vector2(104, 30)
+rotation = 1.5708
+
+[node name="Marker2D" type="Marker2D" parent="GrenadeStartPositions"]
+position = Vector2(-2, -5.99994)
+
+[node name="Marker2D2" type="Marker2D" parent="GrenadeStartPositions"]
+position = Vector2(-8, -3.99994)
+
+[node name="Marker2D3" type="Marker2D" parent="GrenadeStartPositions"]
+position = Vector2(4, -1.99994)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+
+[node name="ShootParticles" type="GPUParticles2D" parent="."]
+position = Vector2(136, 27)
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_m61eq")
+lifetime = 0.15
+one_shot = true
+randomness = 0.5
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]
