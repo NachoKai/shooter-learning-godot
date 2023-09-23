@@ -4,26 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://d00niy5o0v8f6" path="res://graphics/objects/gate.png" id="1_da0e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8of4"]
-size = Vector2(851, 283.5)
+size = Vector2(851, 207.5)
 
 [node name="Gate" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_45ay6")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="GateShape" type="CollisionPolygon2D" parent="."]
 position = Vector2(84, 2)
 polygon = PackedVector2Array(-1064, -1414, -1062, -63, -1029, 18, -974, 88, -888, 134, -796, 145, 2, 144, 0, -90, 858, -82, 857, 145, 952, 146, 1702, 154, 1790, 119, 1847, 77, 1903, 0, 1927, -81, 1933, -1413)
 
-[node name="Gate" type="Sprite2D" parent="."]
+[node name="GateImage" type="Sprite2D" parent="."]
 position = Vector2(451, -634)
 texture = ExtResource("1_da0e1")
 
-[node name="GateArea" type="Area2D" parent="."]
+[node name="GateDoor" type="Area2D" parent="."]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GateArea"]
-position = Vector2(510.5, 88.25)
+[node name="GateDoorShape" type="CollisionShape2D" parent="GateDoor"]
+position = Vector2(510.5, 50.25)
 shape = SubResource("RectangleShape2D_r8of4")
 
-[connection signal="body_entered" from="GateArea" to="." method="_on_gate_area_body_entered"]
+[connection signal="body_entered" from="GateDoor" to="." method="_on_gate_area_body_entered"]

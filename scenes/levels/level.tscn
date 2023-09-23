@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://f15gcvweat2k"]
+[gd_scene load_steps=4 format=3 uid="uid://f15gcvweat2k"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_cbj4d"]
+[ext_resource type="PackedScene" uid="uid://r3o0x446yn5i" path="res://scenes/UI/ui.tscn" id="3_qvlpg"]
 [ext_resource type="PackedScene" uid="uid://cuc1o3jo7nxeg" path="res://scenes/player/player.tscn" id="4_624we"]
 
 [node name="Level" type="Node2D"]
@@ -10,8 +11,16 @@ script = ExtResource("1_cbj4d")
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[node name="Objects" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("4_624we")]
 position = Vector2(495, 840)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("3_qvlpg")]
 
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]

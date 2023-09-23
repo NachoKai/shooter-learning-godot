@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://r3o0x446yn5i"]
+
+[ext_resource type="Texture2D" uid="uid://3gyc238p4crg" path="res://graphics/ui/bullet.png" id="1_p17f0"]
+[ext_resource type="Theme" uid="uid://d2qx4qq1twxh5" path="res://scenes/UI/main_theme.tres" id="1_vkdbu"]
+[ext_resource type="Script" path="res://scenes/UI/ui.gd" id="1_wf32y"]
+[ext_resource type="Texture2D" uid="uid://dt0m0kwsvut81" path="res://graphics/ui/grenade.png" id="2_lsece"]
+[ext_resource type="Texture2D" uid="uid://ccpqkahopiqpj" path="res://graphics/ui/progress_bar/bg.png" id="4_2ln3b"]
+[ext_resource type="Texture2D" uid="uid://de2jflld8fh1" path="res://graphics/ui/progress_bar/over.png" id="5_7oxee"]
+[ext_resource type="Texture2D" uid="uid://bc4lpttli7n72" path="res://graphics/ui/progress_bar/progress.png" id="6_tq1c1"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_wf32y")
+
+[node name="FullScreenDebug" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.2)
+
+[node name="HeatlBarContainer" type="MarginContainer" parent="."]
+offset_right = 332.0
+offset_bottom = 62.0
+scale = Vector2(1.5, 1.5)
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+
+[node name="HealthBar" type="TextureProgressBar" parent="HeatlBarContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+texture_under = ExtResource("4_2ln3b")
+texture_over = ExtResource("5_7oxee")
+texture_progress = ExtResource("6_tq1c1")
+
+[node name="ProjectilesContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = 150.0
+grow_vertical = 0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Projectiles" type="HBoxContainer" parent="ProjectilesContainer"]
+custom_minimum_size = Vector2(150, 90)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="BulletCounter" type="Control" parent="ProjectilesContainer/Projectiles"]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+tooltip_text = "Bullets Count"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProjectilesContainer/Projectiles/BulletCounter"]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 2
+offset_right = 28.0
+offset_bottom = 58.0
+
+[node name="BulletsCount" type="Label" parent="ProjectilesContainer/Projectiles/BulletCounter/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vkdbu")
+text = "000"
+horizontal_alignment = 1
+
+[node name="BulletsImage" type="TextureRect" parent="ProjectilesContainer/Projectiles/BulletCounter/VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("1_p17f0")
+expand_mode = 5
+
+[node name="GrenadeCounter" type="Control" parent="ProjectilesContainer/Projectiles"]
+custom_minimum_size = Vector2(30, 60)
+layout_mode = 2
+tooltip_text = "Grenades Count"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProjectilesContainer/Projectiles/GrenadeCounter"]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 2
+offset_right = 28.0
+offset_bottom = 58.0
+
+[node name="GrenadesCount" type="Label" parent="ProjectilesContainer/Projectiles/GrenadeCounter/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_vkdbu")
+text = "000"
+horizontal_alignment = 1
+
+[node name="GrenadeImage" type="TextureRect" parent="ProjectilesContainer/Projectiles/GrenadeCounter/VBoxContainer"]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 2
+texture = ExtResource("2_lsece")
+expand_mode = 5
