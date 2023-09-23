@@ -3,10 +3,9 @@ extends CharacterBody2D
 signal laser(pos, dir)
 signal grenade(pos, dir)
 
+@export var max_speed: int = 800
 var canLaser: bool = true
 var canGranade: bool = true
-
-@export var max_speed: int = 800
 var speed: int = max_speed
 
 func _process(_delta):

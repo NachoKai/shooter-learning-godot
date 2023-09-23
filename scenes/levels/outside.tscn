@@ -71,13 +71,13 @@ position = Vector2(4246, -1094)
 [node name="SteamVent" parent="." index="5" instance=ExtResource("11_5y3jc")]
 position = Vector2(-222, 630)
 
-[node name="LightFanAnimation" parent="." index="6" instance=ExtResource("12_7ur0j")]
-position = Vector2(3656, -327)
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="6"]
 energy = 0.6
 
-[node name="Drone" parent="." index="8" instance=ExtResource("13_1sjsd")]
+[node name="Drone" parent="." index="9" instance=ExtResource("13_1sjsd")]
 position = Vector2(1567, 1078)
+
+[node name="LightFanAnimation" parent="." index="10" instance=ExtResource("12_7ur0j")]
+position = Vector2(3656, -327)
 
 [connection signal="gateArea" from="Gate" to="." method="_on_gate_gate_area"]
