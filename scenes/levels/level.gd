@@ -4,10 +4,12 @@ class_name LevelParent
 var laserScene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenadeScene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
+
 func _ready():
 	$UI.updateBulletsText()
 	$UI.updateGrenadesText()
 	$UI.updatePlayerHealth()
+
 
 func _on_player_laser(pos, dir):
 	var laser = laserScene.instantiate() as Area2D
