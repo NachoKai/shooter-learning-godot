@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd81sgkxmbn6s"]
+[gd_scene load_steps=7 format=3 uid="uid://dd81sgkxmbn6s"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_hewqk"]
 [ext_resource type="Texture2D" uid="uid://bej6ls5f83jlk" path="res://graphics/projectiles/blue.png" id="1_j5ud1"]
+[ext_resource type="Texture2D" uid="uid://dbdjrdds0ppy7" path="res://graphics/lights/textures/circle.png" id="2_105qt"]
 [ext_resource type="Texture2D" uid="uid://cy0k581ybvt17" path="res://graphics/decals/white.png" id="3_ke7tc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gg6dq"]
@@ -25,13 +26,13 @@ collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_hewqk")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.541176, 1, 1, 0.8)
+texture = ExtResource("2_105qt")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -10)
 shape = SubResource("CapsuleShape2D_gg6dq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -10)
-texture = ExtResource("1_j5ud1")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 modulate = Color(0.364706, 0.784314, 0.960784, 0.490196)
@@ -42,3 +43,7 @@ process_material = SubResource("ParticleProcessMaterial_j0rxr")
 texture = ExtResource("3_ke7tc")
 lifetime = 0.2
 randomness = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -10)
+texture = ExtResource("1_j5ud1")
