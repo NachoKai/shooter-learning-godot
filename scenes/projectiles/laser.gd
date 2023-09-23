@@ -1,7 +1,20 @@
 extends Area2D
 
-const SPEED: int = 3000
+@export var SPEED: int = 3000
 var direction: Vector2 = Vector2.UP
+
+func _ready():
+		$LaserDestroyedTimer.start()
+		
 
 func _process(delta):
 	position += direction * SPEED * delta
+
+
+func _on_body_entered(body):
+	if "hit" in body:
+		body.hit()
+		
+
+func _on_laser_destroyed_timer_timeout():
+	queue_free()

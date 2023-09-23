@@ -47,3 +47,10 @@ randomness = 0.5
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, -10)
 texture = ExtResource("1_j5ud1")
+
+[node name="LaserDestroyedTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="LaserDestroyedTimer" to="." method="_on_laser_destroyed_timer_timeout"]

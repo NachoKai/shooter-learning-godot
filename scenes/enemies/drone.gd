@@ -6,3 +6,7 @@ func _process(_delta):
 	var direction = Vector2.UP
 	velocity = direction * SPEED
 	move_and_slide()
+
+
+func hit():
+	print("damage")
