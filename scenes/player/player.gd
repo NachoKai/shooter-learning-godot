@@ -8,7 +8,6 @@ var canLaser: bool = true
 var canGranade: bool = true
 var speed: int = max_speed
 
-
 func _process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
@@ -36,11 +35,8 @@ func _process(_delta):
 		$GrenadeTimer.start()
 		grenade.emit(grenadePosition, playerDirection)
 
-
 func _on_shoot_timer_timeout():
 	canLaser = true
 
-
 func _on_grenade_timer_timeout():
 	canGranade = true
-

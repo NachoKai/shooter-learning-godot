@@ -4,12 +4,10 @@ class_name LevelParent
 var laserScene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenadeScene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
 
-
 func _ready():
 	$UI.updateBulletsText()
 	$UI.updateGrenadesText()
 	$UI.updatePlayerHealthProgress()
-
 
 func _on_player_laser(pos, dir):
 	var laser = laserScene.instantiate() as Area2D
@@ -19,7 +17,6 @@ func _on_player_laser(pos, dir):
 	$Projectiles.add_child(laser)
 	$UI.updateBulletsText()
 
-
 func _on_player_grenade(pos, dir):
 	var grenade = grenadeScene.instantiate() as RigidBody2D
 	grenade.position = pos
@@ -27,13 +24,10 @@ func _on_player_grenade(pos, dir):
 	$Projectiles.add_child(grenade)
 	$UI.updateGrenadesText()
 
-
 func _on_house_player_entered():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(1, 1), 1)
 
-
 func _on_house_player_exited():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6, 0.6), 1)
-

@@ -14,10 +14,10 @@ func chooseItem():
 	var totalProbability: int = 0
 	for item in availableItems:
 		totalProbability += item["probability"]
-	
+
 	var randNum: int = randi() % totalProbability
 	var cumulativeProb: int = 0
-	
+
 	for item in availableItems:
 		cumulativeProb += item["probability"]
 		if randNum < cumulativeProb:
@@ -48,4 +48,3 @@ func _on_body_entered(_body):
 				Globals.player_health = Globals.max_player_health
 
 	queue_free()
-

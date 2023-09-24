@@ -25,16 +25,13 @@ func update_color(amount: int, label: Label, icon: TextureRect):
 		label.modulate = green
 		icon.modulate = green
 
-
 func updateBulletsText():
 	bulletsLabel.text = str(Globals.bullets_amount)
 	update_color(Globals.bullets_amount, bulletsLabel, bulletsImage)
 
-
 func updateGrenadesText():
 	grenadesLabel.text = str(Globals.grenades_amount)
 	update_color(Globals.grenades_amount, grenadesLabel, grenadesImage)
-
 
 func updatePlayerHealthProgress():
 	playerHealthProgressBar.value = Globals.player_health
