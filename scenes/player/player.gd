@@ -43,3 +43,4 @@ func _on_shoot_timer_timeout():
 
 func _on_grenade_timer_timeout():
 	canGranade = true
+
