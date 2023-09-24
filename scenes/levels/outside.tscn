@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b8ncrtddk0lkd"]
+[gd_scene load_steps=17 format=3 uid="uid://b8ncrtddk0lkd"]
 
 [ext_resource type="PackedScene" uid="uid://f15gcvweat2k" path="res://scenes/levels/level.tscn" id="1_hlmq8"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_hom1g"]
@@ -13,7 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://c86nukjba14kq" path="res://scenes/objects/bed.tscn" id="10_0ej85"]
 [ext_resource type="PackedScene" uid="uid://pi3076xrqpsp" path="res://scenes/objects/steam_vent.tscn" id="11_5y3jc"]
 [ext_resource type="PackedScene" uid="uid://caem6n5e0ohc" path="res://scenes/objects/light_fan_animation.tscn" id="12_7ur0j"]
-[ext_resource type="PackedScene" uid="uid://dxe83nm4q15kq" path="res://scenes/items/item.tscn" id="14_lw7tr"]
+[ext_resource type="PackedScene" uid="uid://5i1mec6wimpa" path="res://scenes/objects/toilet.tscn" id="14_qjfxq"]
+[ext_resource type="PackedScene" uid="uid://dfd3mt8bcsafe" path="res://scenes/objects/box.tscn" id="15_btemd"]
 
 [sub_resource type="TileSet" id="TileSet_tkwsy"]
 tile_size = Vector2i(390, 390)
@@ -74,14 +75,23 @@ position = Vector2(-222, 630)
 [node name="LightFanAnimation" parent="Objects" index="5" instance=ExtResource("12_7ur0j")]
 position = Vector2(3656, -327)
 
-[node name="Player" parent="." index="3"]
+[node name="Toilet" parent="Objects" index="6" instance=ExtResource("14_qjfxq")]
+position = Vector2(826, 980)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Box" parent="Objects" index="7" instance=ExtResource("15_btemd")]
+position = Vector2(1308, 528)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Player" parent="." index="4"]
 position = Vector2(576, 386)
 rotation = 1.5708
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="0"]
 energy = 0.6
 
-[node name="Item" parent="." index="7" instance=ExtResource("14_lw7tr")]
-position = Vector2(300, 651)
-
 [connection signal="gateArea" from="Objects/Gate" to="." method="_on_gate_gate_area"]
+[connection signal="player_entered" from="Objects/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Objects/House" to="." method="_on_house_player_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0lv8rqnbuic1"]
+[gd_scene load_steps=17 format=3 uid="uid://d0lv8rqnbuic1"]
 
 [ext_resource type="PackedScene" uid="uid://f15gcvweat2k" path="res://scenes/levels/level.tscn" id="1_i1kj3"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_tgc26"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ciaqllkdtpvnu" path="res://graphics/tilesets/interior.png" id="4_nvmdn"]
 [ext_resource type="Texture2D" uid="uid://bkh548mj2r7e7" path="res://graphics/lights/overlays/hole.png" id="6_65gyy"]
 [ext_resource type="PackedScene" uid="uid://caem6n5e0ohc" path="res://scenes/objects/light_fan_animation.tscn" id="6_84qwo"]
+[ext_resource type="PackedScene" uid="uid://c86nukjba14kq" path="res://scenes/objects/bed.tscn" id="7_chsab"]
 [ext_resource type="PackedScene" uid="uid://btud01qlm5k6q" path="res://scenes/objects/simple_light.tscn" id="7_e5gl4"]
 [ext_resource type="Texture2D" uid="uid://dbdjrdds0ppy7" path="res://graphics/lights/textures/circle.png" id="7_jnhc4"]
 [ext_resource type="PackedScene" uid="uid://mnp6s76ixnkg" path="res://scenes/enemies/drone.tscn" id="9_cwf5e"]
-[ext_resource type="PackedScene" uid="uid://dxe83nm4q15kq" path="res://scenes/items/item.tscn" id="12_msate"]
+[ext_resource type="Texture2D" uid="uid://cxd7ab4kfkrmm" path="res://graphics/lights/overlays/lattice.png" id="13_k34m8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ugyr"]
 resource_name = "interior"
@@ -123,24 +124,41 @@ layer_2/tile_data = PackedInt32Array(-131075, 196609, 0, 262149, 327681, 2, 3276
 [node name="Toilet" parent="Objects" index="0" instance=ExtResource("2_untev")]
 position = Vector2(1911, 1373)
 rotation = 1.5708
+collision_layer = 1
+collision_mask = 1
 
 [node name="Box" parent="Objects" index="1" instance=ExtResource("3_axfr7")]
-position = Vector2(-578, 1469)
+position = Vector2(-577, 1291)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Box2" parent="Objects" index="2" instance=ExtResource("3_axfr7")]
-position = Vector2(-570, 1253)
+position = Vector2(-570, 789)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Box3" parent="Objects" index="3" instance=ExtResource("3_axfr7")]
-position = Vector2(-570, 1042)
+position = Vector2(-570, 267)
+collision_layer = 1
+collision_mask = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Objects" index="4"]
-modulate = Color(1, 1, 1, 0.301961)
-position = Vector2(549, -391)
-scale = Vector2(2, 2)
-texture = ExtResource("6_65gyy")
-metadata/_edit_lock_ = true
+[node name="Bed" parent="Objects" index="4" instance=ExtResource("7_chsab")]
+position = Vector2(1584, -576)
+rotation = 0.0349066
 
-[node name="Player" parent="." index="4"]
+[node name="Bed2" parent="Objects" index="5" instance=ExtResource("7_chsab")]
+position = Vector2(1584, -99)
+rotation = -0.0174533
+
+[node name="Bed3" parent="Objects" index="6" instance=ExtResource("7_chsab")]
+position = Vector2(1584, 378)
+rotation = 0.0174533
+
+[node name="Bed4" parent="Objects" index="7" instance=ExtResource("7_chsab")]
+position = Vector2(1584, 887)
+rotation = -0.0349066
+
+[node name="Player" parent="." index="5"]
 position = Vector2(577, 1575)
 rotation = -1.5708
 
@@ -150,44 +168,60 @@ texture = ExtResource("7_jnhc4")
 texture_scale = 2.0
 metadata/_edit_lock_ = true
 
-[node name="Drone" parent="Enemies" index="0" instance=ExtResource("9_cwf5e")]
-position = Vector2(248, 113)
-
-[node name="InsideLight" type="DirectionalLight2D" parent="." index="6"]
-color = Color(0.34902, 0.356863, 0.72549, 1)
-blend_mode = 1
-
-[node name="ExitDoor" type="Area2D" parent="." index="7"]
+[node name="ExitDoor" type="Area2D" parent="." index="6"]
 
 [node name="ExitDoorShape" type="CollisionShape2D" parent="ExitDoor" index="0"]
 position = Vector2(585, 1763.56)
 shape = SubResource("RectangleShape2D_0km14")
 
-[node name="SimpleLight" parent="Lights" index="0" instance=ExtResource("7_e5gl4")]
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("9_cwf5e")]
+position = Vector2(248, 113)
+
+[node name="WindowLight" type="Sprite2D" parent="Lights" index="0"]
+modulate = Color(1, 1, 1, 0.301961)
+position = Vector2(549, -391)
+scale = Vector2(2, 2)
+texture = ExtResource("6_65gyy")
+metadata/_edit_lock_ = true
+
+[node name="SimpleLight" parent="Lights" index="1" instance=ExtResource("7_e5gl4")]
 position = Vector2(523, -902)
 metadata/_edit_lock_ = true
 
-[node name="SimpleLight2" parent="Lights" index="1" instance=ExtResource("7_e5gl4")]
+[node name="SimpleLight2" parent="Lights" index="2" instance=ExtResource("7_e5gl4")]
 position = Vector2(2073, 607)
 rotation = 1.5708
 metadata/_edit_lock_ = true
 
-[node name="SimpleLight3" parent="Lights" index="2" instance=ExtResource("7_e5gl4")]
+[node name="SimpleLight3" parent="Lights" index="3" instance=ExtResource("7_e5gl4")]
 position = Vector2(-907, 570)
 rotation = -1.5708
 metadata/_edit_lock_ = true
 
-[node name="LightFanAnimation" parent="Lights" index="3" instance=ExtResource("6_84qwo")]
+[node name="LightFanAnimation" parent="Lights" index="4" instance=ExtResource("6_84qwo")]
 position = Vector2(1379, 392)
 scale = Vector2(1.232, 1.232)
 metadata/_edit_lock_ = true
 
-[node name="LightFanAnimation2" parent="Lights" index="4" instance=ExtResource("6_84qwo")]
+[node name="LightFanAnimation2" parent="Lights" index="5" instance=ExtResource("6_84qwo")]
 position = Vector2(-193, 392)
 scale = Vector2(1.232, 1.232)
 metadata/_edit_lock_ = true
 
-[node name="Item" parent="." index="10" instance=ExtResource("12_msate")]
-position = Vector2(559, 424)
+[node name="InsideLight" type="DirectionalLight2D" parent="Lights" index="6"]
+color = Color(0.364706, 0.372549, 0.745098, 1)
+blend_mode = 1
+
+[node name="LatticeLight" type="Sprite2D" parent="Lights" index="7"]
+modulate = Color(1, 1, 1, 0.513726)
+position = Vector2(-356, -638)
+scale = Vector2(1.38344, 1.38344)
+texture = ExtResource("13_k34m8")
+
+[node name="LatticeLight2" type="Sprite2D" parent="Lights" index="8"]
+modulate = Color(1, 1, 1, 0.513726)
+position = Vector2(1235, -638)
+scale = Vector2(1.38344, 1.38344)
+texture = ExtResource("13_k34m8")
 
 [connection signal="body_entered" from="ExitDoor" to="." method="_on_exit_door_body_entered"]

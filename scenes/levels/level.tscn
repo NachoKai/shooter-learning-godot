@@ -9,9 +9,11 @@ script = ExtResource("1_cbj4d")
 
 [node name="Ground" type="Node2D" parent="."]
 
-[node name="Projectiles" type="Node2D" parent="."]
-
 [node name="Objects" type="Node2D" parent="."]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_624we")]
 position = Vector2(495, 840)
