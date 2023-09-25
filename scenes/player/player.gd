@@ -13,6 +13,7 @@ func _process(_delta):
 	velocity = direction * speed
 	move_and_slide()
 	look_at(get_global_mouse_position())
+	Globals.player_pos = global_position
 
 	var playerDirection = (get_global_mouse_position() - position).normalized()
 

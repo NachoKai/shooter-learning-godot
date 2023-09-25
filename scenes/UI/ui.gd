@@ -6,8 +6,6 @@ extends CanvasLayer
 @onready var bulletsImage: TextureRect = $ProjectilesContainer/Projectiles/BulletCounter/VBoxContainer/BulletsImage
 @onready var grenadesImage: TextureRect = $ProjectilesContainer/Projectiles/GrenadeCounter/VBoxContainer/GrenadeImage
 
-var green: Color = Color("6bbfa3")
-var red: Color = Color(0.9, 0, 0, 1)
 
 func _ready():
 	Globals.connect("state_changed", update_stats_texts)
@@ -19,11 +17,11 @@ func update_stats_texts():
 
 func update_color(amount: int, label: Label, icon: TextureRect):
 	if amount <= 0:
-		label.modulate = red
-		icon.modulate = red
+		label.modulate = Globals.red
+		icon.modulate = Globals.red
 	else:
-		label.modulate = green
-		icon.modulate = green
+		label.modulate = Globals.green
+		icon.modulate = Globals.green
 
 func updateBulletsText():
 	bulletsLabel.text = str(Globals.bullets_amount)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0lv8rqnbuic1"]
+[gd_scene load_steps=18 format=3 uid="uid://d0lv8rqnbuic1"]
 
 [ext_resource type="PackedScene" uid="uid://f15gcvweat2k" path="res://scenes/levels/level.tscn" id="1_i1kj3"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_tgc26"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdjrdds0ppy7" path="res://graphics/lights/textures/circle.png" id="7_jnhc4"]
 [ext_resource type="PackedScene" uid="uid://mnp6s76ixnkg" path="res://scenes/enemies/drone.tscn" id="9_cwf5e"]
 [ext_resource type="Texture2D" uid="uid://cxd7ab4kfkrmm" path="res://graphics/lights/overlays/lattice.png" id="13_k34m8"]
+[ext_resource type="PackedScene" uid="uid://dk4p2137ypq58" path="res://scenes/enemies/scout.tscn" id="14_ayeye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ugyr"]
 resource_name = "interior"
@@ -223,5 +224,8 @@ modulate = Color(1, 1, 1, 0.513726)
 position = Vector2(1235, -638)
 scale = Vector2(1.38344, 1.38344)
 texture = ExtResource("13_k34m8")
+
+[node name="Scout" parent="." index="10" instance=ExtResource("14_ayeye")]
+position = Vector2(259, -99)
 
 [connection signal="body_entered" from="ExitDoor" to="." method="_on_exit_door_body_entered"]
