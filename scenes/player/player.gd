@@ -46,5 +46,5 @@ func _on_grenade_timer_timeout():
 	
 	
 func hit():
-	pass
+	Globals.player_health -= 10
 

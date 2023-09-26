@@ -55,5 +55,4 @@ func _on_body_entered(body):
 			Globals.player_health += 10
 			if Globals.player_health > Globals.max_player_health:
 				Globals.player_health = Globals.max_player_health
-	if !body.has_method("hit"):
-		queue_free()
+	queue_free()
