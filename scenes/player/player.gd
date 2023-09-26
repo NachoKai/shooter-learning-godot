@@ -36,8 +36,15 @@ func _process(_delta):
 		$GrenadeTimer.start()
 		grenade.emit(grenadePosition, playerDirection)
 
+
 func _on_shoot_timer_timeout():
 	canLaser = true
 
+
 func _on_grenade_timer_timeout():
 	canGranade = true
+	
+	
+func hit():
+	pass
+

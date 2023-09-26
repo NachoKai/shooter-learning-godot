@@ -10,7 +10,9 @@ func explode():
 
 func _process(_delta):
 	if explosion_active:
-		var targets = get_tree().get_nodes_in_group("ItemContainer")
+		var itemGroupNodes = get_tree().get_nodes_in_group("ItemGroup")
+		var damageableGroupNodes = get_tree().get_nodes_in_group("DamageableGroup")
+		var targets = itemGroupNodes + damageableGroupNodes
 		for target in targets:
 			var in_range = target.global_position.distance_to(global_position) < explosion_radius
 			if "hit" in target and in_range:

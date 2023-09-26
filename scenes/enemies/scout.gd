@@ -19,6 +19,10 @@ func _process(_delta):
 			$LaserCooldown.start()
 
 
+func hit():
+	pass
+
+
 func _on_attack_area_body_entered(_body):
 	player_nearby = true
 

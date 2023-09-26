@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k00d4"]
 size = Vector2(397, 176)
 
-[node name="Box" instance=ExtResource("1_ikxpc")]
+[node name="Box" groups=["ItemGroup"] instance=ExtResource("1_ikxpc")]
 script = ExtResource("2_jjt2g")
 
 [node name="CollisionShape2D" parent="." index="0"]

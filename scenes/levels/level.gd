@@ -10,11 +10,11 @@ func _ready():
 	$UI.updateGrenadesText()
 	$UI.updatePlayerHealthProgress()
 
-	var itemContainer = get_tree().get_nodes_in_group("ItemContainer")
+	var itemContainer = get_tree().get_nodes_in_group("ItemGroup")
 	for container in itemContainer:
 		container.connect("open", _on_item_container_opened)
 
-	for scout in get_tree().get_nodes_in_group("Scouts"):
+	for scout in get_tree().get_nodes_in_group("ScoutsGroup"):
 		scout.connect("laser", _on_scout_laser)
 
 

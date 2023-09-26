@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_nop1n"]
 radius = 109.115
 
-[node name="Toilet" instance=ExtResource("1_snw0k")]
+[node name="Toilet" groups=["ItemGroup"] instance=ExtResource("1_snw0k")]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("2_nfg6m")
 
