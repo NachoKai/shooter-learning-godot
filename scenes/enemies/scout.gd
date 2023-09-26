@@ -4,12 +4,15 @@ signal laser(pos, dir)
 
 var player_nearby: bool = false
 var can_laser: bool = true
+var right_gun_use: bool = true
 
 func _process(_delta):
 	if player_nearby:
 		look_at(Globals.player_pos)
 		if can_laser:
-			var pos: Vector2 = $LaserSpawnPositions/FirstGunPosition.global_position
+			var marker_node = $LaserSpawnPositions.get_child(right_gun_use)
+			right_gun_use = not right_gun_use
+			var pos: Vector2 = marker_node.global_position
 			var dir: Vector2 = (Globals.player_pos - pos).normalized()
 			laser.emit(pos, dir)
 			can_laser = false

@@ -35,10 +35,10 @@ shape = SubResource("CircleShape2D_8wt4a")
 [node name="LaserSpawnPositions" type="Node2D" parent="."]
 
 [node name="FirstGunPosition" type="Marker2D" parent="LaserSpawnPositions"]
-position = Vector2(96, -27)
+position = Vector2(94, -28)
 
 [node name="SecondGunPosition" type="Marker2D" parent="LaserSpawnPositions"]
-position = Vector2(107, 9)
+position = Vector2(104, 12)
 
 [node name="LaserCooldown" type="Timer" parent="."]
 

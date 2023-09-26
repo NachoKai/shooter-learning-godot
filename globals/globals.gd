@@ -11,7 +11,7 @@ var max_bullets_amount: int = 100
 var max_grenades_amount: int = 20
 var max_player_health: int = 100
 
-var bullets_amount = 10:
+var bullets_amount = 100:
 	set(value):
 		bullets_amount = value
 		state_changed.emit()
