@@ -3,7 +3,7 @@ class_name LevelParent
 
 var laserScene: PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenadeScene: PackedScene = preload("res://scenes/projectiles/grenade.tscn")
-var item_scene: PackedScene = preload("res://scenes/items/item.tscn")
+var itemScene: PackedScene = preload("res://scenes/items/item.tscn")
 
 func _ready():
 	$UI.updateBulletsText()
@@ -19,7 +19,7 @@ func _ready():
 
 
 func _on_item_container_opened(pos, dir):
-	var item = item_scene.instantiate()
+	var item = itemScene.instantiate()
 	item.position = pos
 	item.direction = dir
 	$Items.call_deferred("add_child", item)
