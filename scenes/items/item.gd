@@ -41,8 +41,8 @@ func _process(delta):
 	rotation += ROTATION_SPEED * delta
 
 
-func _on_body_entered(body):
-	match itemType:
+func _on_body_entered(_body):
+	match itemType: 
 		"bullets":
 			Globals.bullets_amount += 15
 			if Globals.bullets_amount > Globals.max_bullets_amount:
