@@ -33,7 +33,7 @@ var player_health = 100:
 				player_invulnerable_timer()
 		state_changed.emit()
 
-var player_pos: Vector2
+var player_position: Vector2
 
 func player_invulnerable_timer():
 	await get_tree().create_timer(0.5).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8ncrtddk0lkd"]
+[gd_scene load_steps=19 format=3 uid="uid://b8ncrtddk0lkd"]
 
 [ext_resource type="PackedScene" uid="uid://f15gcvweat2k" path="res://scenes/levels/level.tscn" id="1_hlmq8"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_hom1g"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://5i1mec6wimpa" path="res://scenes/objects/toilet.tscn" id="14_qjfxq"]
 [ext_resource type="PackedScene" uid="uid://dfd3mt8bcsafe" path="res://scenes/objects/box.tscn" id="15_btemd"]
 [ext_resource type="PackedScene" uid="uid://dk4p2137ypq58" path="res://scenes/enemies/scout.tscn" id="16_xuoka"]
+[ext_resource type="PackedScene" uid="uid://bmy4davlatsq7" path="res://scenes/enemies/bug.tscn" id="17_iawtv"]
 
 [sub_resource type="TileSet" id="TileSet_tkwsy"]
 tile_size = Vector2i(390, 390)
@@ -90,6 +91,9 @@ rotation = 1.5708
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_xuoka")]
 position = Vector2(-246, 1628)
+
+[node name="Bug" parent="Enemies" index="1" instance=ExtResource("17_iawtv")]
+position = Vector2(1339, 1586)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="0"]
 energy = 0.6

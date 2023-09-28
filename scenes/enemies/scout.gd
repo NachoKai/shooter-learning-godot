@@ -10,12 +10,12 @@ var vulnerable: bool = true
 
 func _process(_delta):
 	if player_nearby:
-		look_at(Globals.player_pos)
+		look_at(Globals.player_position)
 		if can_laser:
 			var marker_node = $LaserSpawnPositions.get_child(right_gun_use)
 			right_gun_use = not right_gun_use
 			var pos: Vector2 = marker_node.global_position
-			var dir: Vector2 = (Globals.player_pos - pos).normalized()
+			var dir: Vector2 = (Globals.player_position - pos).normalized()
 			laser.emit(pos, dir)
 			can_laser = false
 			$Timers/LaserTimer.start()
