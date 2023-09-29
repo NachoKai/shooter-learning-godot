@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8ncrtddk0lkd"]
+[gd_scene load_steps=20 format=3 uid="uid://b8ncrtddk0lkd"]
 
 [ext_resource type="PackedScene" uid="uid://f15gcvweat2k" path="res://scenes/levels/level.tscn" id="1_hlmq8"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_hom1g"]
 [ext_resource type="Texture2D" uid="uid://d3fc0x0cq6fgq" path="res://graphics/ground/stones.png" id="2_x3hfe"]
 [ext_resource type="Texture2D" uid="uid://b8oyhr88lhp4i" path="res://graphics/decals/dirt_patch.png" id="3_xeu5k"]
 [ext_resource type="Texture2D" uid="uid://pdoxq1pbb710" path="res://graphics/decals/moss/moss_1.png" id="4_qbtc7"]
+[ext_resource type="PackedScene" uid="uid://mnp6s76ixnkg" path="res://scenes/enemies/drone.tscn" id="4_tpeti"]
 [ext_resource type="Texture2D" uid="uid://c3b61hwba64gc" path="res://graphics/decals/moss/moss_2.png" id="5_d0wfv"]
 [ext_resource type="Texture2D" uid="uid://c1o5uls8wigrg" path="res://graphics/decals/moss/moss_4.png" id="6_u035l"]
 [ext_resource type="PackedScene" uid="uid://cjwx3h71g4vh2" path="res://scenes/objects/gate.tscn" id="7_ic8gv"]
@@ -29,6 +30,9 @@ texture_repeat = 2
 texture = ExtResource("2_x3hfe")
 region_enabled = true
 region_rect = Rect2(20000, -20000, 20000, 20000)
+
+[node name="Drone" parent="Ground/Soil" index="0" instance=ExtResource("4_tpeti")]
+position = Vector2(1740, 2053)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 tile_set = SubResource("TileSet_tkwsy")
@@ -90,10 +94,10 @@ position = Vector2(576, 386)
 rotation = 1.5708
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_xuoka")]
-position = Vector2(-246, 1628)
+position = Vector2(-222, 2325)
 
 [node name="Bug" parent="Enemies" index="1" instance=ExtResource("17_iawtv")]
-position = Vector2(1339, 1586)
+position = Vector2(-1961, 2466)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="0"]
 energy = 0.6
